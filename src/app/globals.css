@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --breakpoint-3xl: 97.5rem;
+
+  --color-brand: #e17200;
+  --color-ink: #1a1916;
+  --color-ink-soft: #55524e;
+  --color-ink-mute: #8a867f;
+  --color-up: #1fb85a;
+  --color-down: #e0373f;
+  --color-blue: #56a3fb;
+  --color-green: #48e681;
+  --color-amber: #ea9a44;
+
+  /* Landing surfaces */
+  --color-canvas: #f8f5f0;
+  --color-fog: #f2eee8;
+  --color-head: #323234;
+  --color-body: #6a6a6c;
+  --color-cream: #fff4e6;
+  --color-peach: #ffc37c;
+  --color-tint: #fff9f1;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #d0d0d0 0%, #e7e0d3 50%, #fdefd4 100%);
+  background-attachment: fixed;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+ * The dashboard is designed on a ~1280px-wide canvas and scaled up on larger
+ * screens so type and spacing stay comfortable. --z is the scale factor.
+ */
+.app-zoom {
+  --z: 1;
+  zoom: var(--z);
+}
+@media (min-width: 1280px) { .app-zoom { --z: 1.1; } }
+@media (min-width: 1440px) { .app-zoom { --z: 1.2; } }
+@media (min-width: 1600px) { .app-zoom { --z: 1.3; } }
+@media (min-width: 1760px) { .app-zoom { --z: 1.4; } }
+@media (min-width: 1920px) { .app-zoom { --z: 1.5; } }
+@media (min-width: 2200px) { .app-zoom { --z: 1.7; } }
+@media (min-width: 2560px) { .app-zoom { --z: 1.9; } }
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Entrance animations are pure CSS so they work even before hydration. */
+@keyframes bar-grow {
+  from { height: 0; }
+}
+.bar-grow {
+  animation: bar-grow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 35ms);
+}
+@keyframes gauge-in {
+  from { opacity: 0; transform: translateX(-50%) scale(0.94); }
+}
+.gauge-in {
+  animation: gauge-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bar-grow, .gauge-in { animation: none; }
+}
+
+/* Mini-chart entrance animations (CSS-only). */
+@keyframes spark-grow {
+  from { transform: scaleY(0); }
+}
+.spark-grow {
+  transform-origin: bottom;
+  animation: spark-grow 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+@keyframes spark-draw {
+  from { stroke-dasharray: 0 100; }
+  to { stroke-dasharray: 100 100; }
+}
+.spark-draw {
+  stroke-dasharray: 100 100;
+  animation: spark-draw 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes spark-fade {
+  from { opacity: 0; }
+}
+.spark-fade {
+  animation: spark-fade 0.5s ease-out 0.55s both;
+}
+@keyframes ring-sweep {
+  from { stroke-dasharray: 0 100; }
+}
+.ring-sweep {
+  animation: ring-sweep 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spark-grow, .spark-draw, .spark-fade, .ring-sweep { animation: none; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Landing page                                                        */
+/* ------------------------------------------------------------------ */
+
+/* The landing is full-bleed on a warm neutral canvas. */
+body:has(.landing-root) {
+  background: var(--color-canvas);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Faint white staircase texture behind the hero, fading toward the centre. */
+.hero-stairs {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M0 31h16V15h16V-1' stroke='%23000' stroke-opacity='.035' stroke-width='1' transform='translate(0 1)'/%3E%3Cpath d='M0 31h16V15h16V-1' stroke='%23fff' stroke-opacity='.55' stroke-width='2'/%3E%3C/svg%3E");
+  -webkit-mask-image:
+    radial-gradient(ellipse 34% 62% at 50% 52%, transparent 40%, #000 100%),
+    linear-gradient(to bottom, transparent 0%, #000 55%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    radial-gradient(ellipse 34% 62% at 50% 52%, transparent 40%, #000 100%),
+    linear-gradient(to bottom, transparent 0%, #000 55%);
+  mask-composite: intersect;
+}
+
+/* Soft white pill used for section badges. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--color-head);
+  box-shadow: 0 0 0 1px rgba(40, 30, 20, 0.07), 0 1px 2px rgba(40, 30, 20, 0.04);
+}
+
+/* Tactile pill buttons: light, dark and brand. */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.18s, background-color 0.18s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0) scale(0.985); }
+.btn:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+.btn-light {
+  color: var(--color-head);
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(40, 30, 20, 0.09), 0 1px 2px rgba(40, 30, 20, 0.06), 0 6px 14px -8px rgba(40, 30, 20, 0.2);
+}
+.btn-light:hover {
+  box-shadow: 0 0 0 1px rgba(40, 30, 20, 0.14), 0 1px 2px rgba(40, 30, 20, 0.08), 0 10px 18px -8px rgba(40, 30, 20, 0.28);
+}
+.btn-dark {
+  color: #fff;
+  background: #1f1e1b;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 16px -8px rgba(0, 0, 0, 0.5);
+}
+.btn-dark:hover { background: #2c2a27; }
+.btn-brand {
+  color: #fff;
+  background: linear-gradient(180deg, #ea8420 0%, #e17200 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 1px 2px rgba(150, 70, 0, 0.4), 0 10px 20px -8px rgba(225, 114, 0, 0.6);
+}
+.btn-brand:hover { background: linear-gradient(180deg, #f08f2c 0%, #e87a05 100%); }
+
+/* Neumorphic inset panel behind the "How it works" mock-ups. */
+.well {
+  border-radius: 16px;
+  background: #f7f7f8;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), inset 0 2px 8px rgba(40, 30, 20, 0.05), 0 0 0 1px rgba(40, 30, 20, 0.02);
+}
+
+/* Tooltip pop for the budget chart. */
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(4px) scale(0.97); }
+}
+.pop-in { animation: pop-in 0.18s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* Draw-in for the AI forecast line. */
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pop-in { animation: none; }
+}
