@@ -13,11 +13,11 @@ export default function Hero({ children }) {
     <section className="relative flex flex-col items-center px-0 pb-0 pt-[56px] text-center sm:pt-[72px]">
       <Pill>CRM &amp; business management for SaaS teams</Pill>
 
-      <h1 className="mt-6 max-w-[800px] text-balance text-[40px] font-semibold leading-[1.1] tracking-[-0.035em] text-head sm:text-[52px] xl:text-[60px] xl:leading-[66px]">
+      <h1 className="mt-6 max-w-[900px] text-balance text-[42px] font-semibold leading-[1.03] tracking-[-0.034em] text-ink sm:text-[58px] xl:text-[72px]">
         Run sales, customers and projects in one place
       </h1>
 
-      <p className="mt-5 max-w-[620px] text-pretty text-[17px] leading-7 text-body sm:text-[19px] sm:leading-8">
+      <p className="mt-6 max-w-[640px] text-pretty text-[17px] leading-[1.6] text-body sm:text-[20px]">
         Manage your pipeline, customers and projects in one workspace, with live insights that show you what to
         do next.
       </p>
@@ -31,7 +31,7 @@ export default function Hero({ children }) {
         </Btn>
       </div>
 
-      <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[15px] tracking-[-0.01em] text-head/90">
+      <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[15px] font-medium tracking-[-0.005em] text-head/90">
         {TRUST.map((t) => (
           <li key={t} className="flex items-center gap-2">
             <Verify size={18} variant="Bold" color="#1fa86b" aria-hidden />

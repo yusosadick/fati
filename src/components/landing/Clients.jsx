@@ -3,7 +3,7 @@ import { LOGOS, Wordmark } from "./logos";
 export default function Clients() {
   return (
     <section aria-labelledby="clients-title" className="pt-[15px] text-center">
-      <h2 id="clients-title" className="text-[18px] leading-7 tracking-[-0.005em] text-head sm:text-[18.4px]">
+      <h2 id="clients-title" className="text-[17px] font-medium leading-7 tracking-[-0.01em] text-head sm:text-[18px]">
         Trusted by 2,000+ SaaS teams and growing startups
       </h2>
       <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-[42px] gap-y-6">

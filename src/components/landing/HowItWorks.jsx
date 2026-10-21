@@ -1,167 +1,173 @@
-import { DocumentUpload } from "iconsax-react";
 import { SectionHead } from "./ui";
 import { BRAND } from "./config";
 
+/* Sample CRM data used in the mock-ups below (fictional names and amounts). */
+
 function Tag({ children }) {
   return (
-    <span className="inline-flex h-7 w-fit items-center rounded-full bg-[#f4f4f5] px-[10px] text-[13px] leading-none text-head shadow-[inset_0_0_0_1px_rgba(255,255,255,.9),0_2px_6px_-1px_rgba(40,30,20,.1)]">
+    <span className="inline-flex h-7 w-fit items-center rounded-full bg-[#f4f4f5] px-[11px] text-[13px] font-medium leading-none text-head shadow-[inset_0_0_0_1px_rgba(255,255,255,.9),0_2px_6px_-1px_rgba(40,30,20,.1)]">
       {children}
     </span>
   );
 }
 
-function Card({ tag, title, children }) {
+function Card({ tag, title, text, children }) {
   return (
-    <li className="flex flex-col rounded-[20px] bg-white p-4 shadow-[0_0_0_1px_rgba(40,30,20,.015)]">
+    <li className="flex flex-col rounded-[22px] bg-white p-4 shadow-[0_0_0_1px_rgba(40,30,20,.015)]">
       <Tag>{tag}</Tag>
-      <h3 className="mt-[12px] text-[21px] font-[450] leading-8 tracking-[-0.02em] text-head">{title}</h3>
-      <div className="mt-[31px] flex-1">{children}</div>
+      <h3 className="mt-3 text-[22px] font-medium leading-[1.25] tracking-[-0.025em] text-ink">{title}</h3>
+      <p className="mt-1.5 min-h-[48px] text-[15px] leading-[1.55] text-body">{text}</p>
+      <div className="mt-5 flex-1">{children}</div>
     </li>
   );
 }
 
-/* ---- 1. Import ------------------------------------------------------- */
-const SOURCES = [
-  <span key="g" className="text-[13px] font-semibold tracking-[-0.02em] text-[#d93025]">Gmail</span>,
-  <span key="o" className="text-[13px] font-semibold tracking-[-0.02em] text-[#0a64c8]">Outlook</span>,
-  <span key="c" className="text-[13px] font-semibold tracking-[-0.02em] text-[#1fa070]">CSV</span>,
+const frame = "well p-[5px]";
+const inner = "h-[214px] overflow-hidden rounded-xl bg-white shadow-[0_1px_2px_rgba(40,30,20,.04)]";
+const row =
+  "flex items-center gap-2 rounded-[10px] bg-white px-2.5 text-[13px] shadow-[0_0_0_1px_rgba(40,30,20,.04),0_2px_6px_-3px_rgba(40,30,20,.12)]";
+
+/* ---- 1. Leads ------------------------------------------------------- */
+const LEADS = [
+  { name: "Maya Chen", co: "Northwind", src: "Web form", cls: "bg-[#e8f1fe] text-[#2563c9]", fresh: true },
+  { name: "Daniel Okoro", co: "Globex", src: "Referral", cls: "bg-[#e6f6ee] text-[#1a9b66]" },
+  { name: "Priya Nair", co: "Acme Corp", src: "Email", cls: "bg-[#fff1da] text-[#c57a12]" },
 ];
 
-function ImportCard() {
+function LeadsCard() {
   return (
-    <div className="well p-[5px]">
-      <div className="rounded-xl bg-white shadow-[0_1px_2px_rgba(40,30,20,.04)]">
-        <div className="flex h-[48px] items-center justify-between border-b border-black/[.06] px-4">
-          <span className="text-[19px] leading-none tracking-[-0.02em] text-head">Import contacts</span>
-          <DocumentUpload size={18} variant="Bold" color="#6b6a69" aria-hidden />
+    <div className={frame}>
+      <div className={inner}>
+        <div className="flex h-11 items-center justify-between border-b border-black/[.06] px-3.5">
+          <span className="font-display text-[15px] font-semibold tracking-[-0.02em] text-ink">Lead inbox</span>
+          <span className="rounded-full bg-brand px-2 py-0.5 text-[12px] font-medium leading-4 text-white">3 new</span>
         </div>
-        <div className="px-4 pb-[14px] pt-[16px]">
-          <div className="flex gap-[6px]">
-            {SOURCES.map((el, i) => (
-              <span
-                key={i}
-                className="flex h-[34px] flex-1 items-center justify-center rounded-lg bg-white shadow-[0_0_0_1px_rgba(40,30,20,.05),0_2px_5px_-2px_rgba(40,30,20,.1)]"
-              >
-                {el}
+        <div className="flex flex-col gap-2 p-2.5">
+          {LEADS.map((l) => (
+            <div key={l.name} className={`${row} h-[44px]`}>
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cream text-[12px] font-semibold text-brand">
+                {l.name.split(" ").map((p) => p[0]).join("")}
               </span>
-            ))}
-          </div>
-          <div className="mt-[14px] flex items-center justify-between text-[14px] leading-none text-body">
-            <span>Importing 1,284 contacts</span>
-            <span className="text-head">72%</span>
-          </div>
-          <div className="mt-[10px] h-[10px] overflow-hidden rounded-full bg-fog">
-            <div className="h-full w-[72%] rounded-full bg-gradient-to-b from-[#f6b06a] to-brand" />
-          </div>
+              <span className="min-w-0 flex-1 leading-tight">
+                <span className="block truncate font-medium text-ink">{l.name}</span>
+                <span className="block truncate text-[12px] text-body">{l.co}</span>
+              </span>
+              <span className={`rounded-full px-2 py-1 text-[12px] font-medium leading-none ${l.cls}`}>{l.src}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-/* ---- 2. Pipeline ------------------------------------------------------ */
-const DEALS = [
-  { tag: "Won", name: "Acme Corp", amount: "$12,400", tagCls: "bg-[#e6f6ee] text-[#1a9b66]", amtCls: "text-[#1fa070]" },
-  { tag: "Proposal", name: "Northwind", amount: "$8,200", tagCls: "bg-[#fff1da] text-[#d9831a]", amtCls: "text-head" },
-  { tag: "New", name: "Globex", amount: "$1,900", tagCls: "bg-[#fdeedd] text-brand", amtCls: "text-head" },
+/* ---- 2. Pipeline board ---------------------------------------------- */
+const STAGES = [
+  { name: "Qualified", tone: "bg-[#f3b16a]", deals: [["Globex", "$1.9k"], ["Initech", "$3.4k"]] },
+  { name: "Proposal", tone: "bg-[#e8a317]", deals: [["Northwind", "$8.2k"]] },
+  { name: "Won", tone: "bg-[#1fb85a]", deals: [["Acme", "$12.4k"], ["Umbra", "$5.1k"]] },
 ];
 
 function PipelineCard() {
   return (
-    <div className="well flex flex-col gap-[11px] p-[14px]">
-      {DEALS.map((t) => (
-        <div
-          key={t.name}
-          className="flex h-[40px] items-center gap-[7px] rounded-[10px] bg-white pl-[7px] pr-[14px] text-[13px] shadow-[0_0_0_1px_rgba(40,30,20,.03),0_2px_6px_-3px_rgba(40,30,20,.12)]"
-        >
-          <span className={`flex h-[26px] items-center rounded-full px-[9px] text-[13px] leading-none ${t.tagCls}`}>{t.tag}</span>
-          <span className="truncate text-body">{t.name}</span>
-          <span className={`ml-auto ${t.amtCls}`}>{t.amount}</span>
+    <div className={frame}>
+      <div className={inner}>
+        <div className="flex h-11 items-center justify-between border-b border-black/[.06] px-3.5">
+          <span className="font-display text-[15px] font-semibold tracking-[-0.02em] text-ink">Pipeline</span>
+          <span className="text-[13px] font-medium text-[#1a9b66]">$31.0k</span>
         </div>
-      ))}
-    </div>
-  );
-}
-
-/* ---- 3. Insights ----------------------------------------------------- */
-const PTS = [
-  [0, 45], [13.5, 35], [33.5, 51], [50, 42.5], [67, 16], [86, 60], [106, 34],
-  [123.5, 44], [158.5, 6], [178.5, 29], [198.5, 41], [218.5, 21], [233.5, 29], [243.5, 12.5],
-];
-
-// Catmull-Rom -> cubic bezier so the forecast reads as one smooth curve.
-function smooth(points) {
-  let d = `M${points[0][0]} ${points[0][1]}`;
-  for (let i = 0; i < points.length - 1; i++) {
-    const p0 = points[i - 1] ?? points[i];
-    const p1 = points[i];
-    const p2 = points[i + 1];
-    const p3 = points[i + 2] ?? p2;
-    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
-    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
-    d += ` C${c1[0].toFixed(1)} ${c1[1].toFixed(1)} ${c2[0].toFixed(1)} ${c2[1].toFixed(1)} ${p2[0]} ${p2[1]}`;
-  }
-  return d;
-}
-
-function InsightCard() {
-  const line = smooth(PTS);
-  return (
-    <div className="well p-[5px]">
-      <div className="relative h-[160px] overflow-hidden rounded-xl bg-white">
-        <span className="absolute left-3 top-3 z-10 flex h-[26px] items-center rounded-full bg-[#fdeded] px-[10px] text-[12px] leading-none text-[#d0262f]">
-          3 accounts at churn risk
-        </span>
-        <svg viewBox="0 0 244 112" className="absolute inset-x-[11px] bottom-[2px] h-[112px] w-[calc(100%-22px)]" preserveAspectRatio="none" aria-hidden>
-          <defs>
-            <linearGradient id="g-over" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#e0373f" stopOpacity=".26" />
-              <stop offset="1" stopColor="#e0373f" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path d={`${line} L243.5 112 L0 112 Z`} fill="url(#g-over)" />
-          <path d={line} fill="none" stroke="#d0262f" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
-        </svg>
+        <div className="grid grid-cols-3 gap-2 p-2.5">
+          {STAGES.map((s) => (
+            <div key={s.name} className="min-w-0">
+              <p className="mb-2 flex items-center gap-1.5 text-[12px] font-medium text-body">
+                <span className={`h-2 w-2 rounded-full ${s.tone}`} />
+                {s.name}
+              </p>
+              <div className="flex flex-col gap-1.5">
+                {s.deals.map(([co, amt]) => (
+                  <div key={co} className="rounded-lg bg-white px-2 py-1.5 shadow-[0_0_0_1px_rgba(40,30,20,.05),0_2px_5px_-3px_rgba(40,30,20,.15)]">
+                    <p className="truncate text-[12px] font-medium leading-4 text-ink">{co}</p>
+                    <p className="text-[12px] leading-4 text-body">{amt}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-function TrendArrow() {
+/* ---- 3. Customer record --------------------------------------------- */
+const TIMELINE = [
+  ["Invoice #1042 paid", "$4,200", "#1fb85a"],
+  ["Call with Priya", "20 min", "#e17200"],
+  ["Proposal sent", "Tue", "#8a867f"],
+];
+
+function CustomerCard() {
   return (
-    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="#55524e" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M1 12 6 7l3 3 7-7M11.500 2.500H16V7" />
-      <path d="M1 7.500 4 5" opacity=".5" />
-    </svg>
+    <div className={frame}>
+      <div className={inner}>
+        <div className="flex items-center gap-3 border-b border-black/[.06] px-3.5 py-3">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#f7c590] to-[#e8802a] text-[14px] font-semibold text-white">
+            AC
+          </span>
+          <span className="min-w-0 flex-1 leading-tight">
+            <span className="block truncate font-display text-[15px] font-semibold tracking-[-0.02em] text-ink">Acme Corp</span>
+            <span className="block text-[12px] text-body">Since 2024</span>
+          </span>
+          <span className="rounded-full bg-[#e6f6ee] px-2 py-1 text-[12px] font-medium leading-none text-[#1a9b66]">Healthy</span>
+        </div>
+        <ul className="flex flex-col gap-2.5 px-3.5 py-3">
+          {TIMELINE.map(([label, meta, color]) => (
+            <li key={label} className="flex items-center gap-2.5 text-[13px]">
+              <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />
+              <span className="min-w-0 flex-1 truncate text-ink">{label}</span>
+              <span className="text-[12px] text-body">{meta}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
 
-/* ---- 4. Grow --------------------------------------------------------- */
-const BARS = [28.5, 39, 55, 66.5, 77.5, 93.5];
+/* ---- 4. Follow-ups --------------------------------------------------- */
+const TASKS = [
+  { text: "Call Acme about renewal", when: "Today", done: false, hot: true },
+  { text: "Send Northwind proposal", when: "Tomorrow", done: false },
+  { text: "Log notes from Globex demo", when: "Done", done: true },
+];
 
-function OptimizeCard() {
+function TasksCard() {
   return (
-    <div className="well p-[5px]">
-      <div className="flex h-[160px] flex-col overflow-hidden rounded-xl bg-white">
-        <div className="flex h-[44px] shrink-0 items-center justify-between border-b border-black/[.06] px-3">
-          <span className="text-[15px] leading-none tracking-[-0.01em] text-head">Win rate up 18%</span>
-          <TrendArrow />
+    <div className={frame}>
+      <div className={inner}>
+        <div className="flex h-11 items-center justify-between border-b border-black/[.06] px-3.5">
+          <span className="font-display text-[15px] font-semibold tracking-[-0.02em] text-ink">Follow-ups</span>
+          <span className="rounded-full bg-[#fdeded] px-2 py-0.5 text-[12px] font-medium leading-4 text-[#d0262f]">1 due today</span>
         </div>
-        <div className="relative flex-1 px-3 pt-[10px]">
-          <span className="inline-flex h-[21px] items-center rounded-full bg-[#fdeedd] px-[10px] text-[11px] leading-none text-brand">
-            Pipeline added: +$24k/mo
-          </span>
-          <div className="absolute inset-x-3 bottom-[5px] flex items-end justify-between">
-            {BARS.map((h, i) => (
+        <div className="flex flex-col gap-2 p-2.5">
+          {TASKS.map((t) => (
+            <div key={t.text} className={`${row} h-[44px]`}>
               <span
-                key={h}
-                className={`w-[33px] rounded-[8px] ${
-                  i === BARS.length - 1 ? "bg-gradient-to-b from-[#f6b06a] to-brand" : "bg-[#fdeedd]"
+                aria-hidden
+                className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-md ${
+                  t.done ? "bg-[#1fb85a]" : "bg-white shadow-[inset_0_0_0_1.5px_#cfcac3]"
                 }`}
-                style={{ height: h }}
-              />
-            ))}
-          </div>
+              >
+                {t.done && (
+                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m3.5 8.500 3 3 6-7" />
+                  </svg>
+                )}
+              </span>
+              <span className={`min-w-0 flex-1 truncate ${t.done ? "text-body line-through" : "text-ink"}`}>{t.text}</span>
+              <span className={`text-[12px] font-medium ${t.hot ? "text-brand" : "text-body"}`}>{t.when}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -174,15 +180,23 @@ export default function HowItWorks() {
       <SectionHead
         badge={`How ${BRAND} works`}
         title="From first lead to loyal customer"
-        sub="Import your contacts, work your pipeline, and let Fati handle the follow-ups."
+        sub="Capture leads, move deals through your pipeline, keep every customer close, and never miss a follow-up."
         id="how-title"
         className="pt-10 xl:pt-[78px]"
       />
       <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 3xl:mt-[60px] 3xl:grid-cols-4">
-        <Card tag="Quick setup" title="Import your contacts"><ImportCard /></Card>
-        <Card tag="Full visibility" title="Track every deal"><PipelineCard /></Card>
-        <Card tag="Smart insights" title="Spot risks and wins early"><InsightCard /></Card>
-        <Card tag="Faster growth" title="Hit your targets"><OptimizeCard /></Card>
+        <Card tag="Leads" title="Capture every lead" text="Web forms, email and referrals land in one inbox, ready to qualify.">
+          <LeadsCard />
+        </Card>
+        <Card tag="Pipeline" title="Move deals forward" text="See every deal by stage and know exactly what it is worth.">
+          <PipelineCard />
+        </Card>
+        <Card tag="Customers" title="Know every customer" text="One record with calls, emails and invoices, so nothing gets lost.">
+          <CustomerCard />
+        </Card>
+        <Card tag="Follow-ups" title="Never miss a follow-up" text="Tasks and reminders tied to each deal, so every promise gets kept.">
+          <TasksCard />
+        </Card>
       </ul>
     </section>
   );

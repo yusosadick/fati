@@ -57,3 +57,43 @@ export const LOGOS = [
     ),
   },
 ];
+
+// Fifth customer, used by the stories only (the "trusted by" row keeps the first four).
+export const NORTHWIND = {
+  name: "Northwind",
+  icon: (
+    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden>
+      <defs>
+        <linearGradient id="g-north" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#8a8a8e" />
+          <stop offset="1" stopColor="#3f3e43" />
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="19.500" fill="url(#g-north)" />
+      <path d="M20 8.500 26 25.500 20 22 14 25.500 20 8.500Z" fill="#fff" />
+    </svg>
+  ),
+};
+
+export const STACKLINE = {
+  name: "Stackline",
+  icon: (
+    <svg width="38" height="40" viewBox="0 0 38 40" aria-hidden>
+      <rect x="3" y="5" width="32" height="8" rx="4" fill="#8a898e" />
+      <rect x="3" y="16" width="32" height="8" rx="4" fill="#5f5e63" />
+      <rect x="3" y="27" width="32" height="8" rx="4" fill="#3f3e43" />
+    </svg>
+  ),
+};
+
+export const HARBOR = {
+  name: "Harbor",
+  icon: (
+    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden fill="none">
+      <circle cx="20" cy="20" r="19.5" fill="#55545a" />
+      <path d="M20 9v18M12 22c0 4.500 3.600 8 8 8s8-3.500 8-8M14.500 14H25.500" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  ),
+};
+
+export const ALL_LOGOS = [...LOGOS, NORTHWIND, STACKLINE, HARBOR];

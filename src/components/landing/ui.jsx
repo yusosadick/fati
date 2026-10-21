@@ -28,12 +28,12 @@ export function SectionHead({ badge, title, sub, className = "", titleClass = ""
       {badge && <Pill>{badge}</Pill>}
       <h2
         id={id}
-        className={`mt-[23px] text-balance text-[32px] font-[580] leading-[1.14] tracking-[-0.021em] text-head sm:text-[40px] xl:text-[44px] xl:leading-[52px] ${titleClass}`}
+        className={`mt-5 text-balance text-[34px] font-semibold leading-[1.08] tracking-[-0.026em] text-ink sm:text-[42px] xl:text-[52px] ${titleClass}`}
       >
         {title}
       </h2>
       {sub && (
-        <p className="mt-[15px] max-w-[640px] text-pretty text-[16px] leading-6 tracking-[0.01em] text-body sm:leading-7">
+        <p className="mt-4 max-w-[640px] text-pretty text-[16.5px] leading-[1.65] text-body sm:text-[18px]">
           {sub}
         </p>
       )}

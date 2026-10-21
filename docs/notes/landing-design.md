@@ -78,3 +78,27 @@ matching the dashboard (leads, customers, projects, revenue, retention). Layout 
 Placeholders to replace with real content: customer names, quotes and metrics; the customer logos
 (Boltshift, Lightbox, FeatherDev, Orbitly are fictional); plan limits and prices; integration glyphs are
 simple drawings, not official artwork. The reference stock photos and the Stripe avatar were removed.
+
+## AI section and customer stories (2026-10-22)
+
+- `HubSection.jsx` + `HubFlow.jsx` (below the stories): "Close more deals, with less chasing". The hub diagram is a 620x540
+  design canvas scaled to fit; connectors draw in once on entry, hovering a pill lights its connector,
+  reduced motion shows the final state. The diagram is decorative (`role="img"` with a text description).
+- `Testimonials.jsx`: photo collage (centre tile = selected story, click any other tile to swap), a
+  "trusted by 2,000+ teams" logo row and a quote card with two stats. Mobile shows one photo plus a thumbnail strip.
+
+### Photo sources and placeholder status
+
+Portraits in `public/images/people/` come from Pexels (free licence, re-encoded and capped at 1200px):
+
+| File | Pexels photo |
+| --- | --- |
+| `amara.jpg` | https://www.pexels.com/photo/woman-standing-near-whiteboard-1181519/ (Christina Morillo) |
+| `daniel.jpg` | https://www.pexels.com/photo/man-wearing-blue-button-up-sweater-1181391/ (Christina Morillo) |
+| `tolu.jpg` | https://www.pexels.com/photo/femme-au-bureau-20209020/ |
+| `marcus.jpg` | https://www.pexels.com/photo/man-wearing-black-suit-on-white-background-12311559/ (Joseph Eulo) |
+| `kemi.jpg` | https://www.pexels.com/photo/woman-in-black-blazer-sitting-on-black-office-chair-3727464/ |
+
+**These are stock models, not customers.** The names, companies, quotes and figures beside them are invented.
+Pexels' licence does not allow implying that the people endorse a product, so before launch replace every photo,
+name, quote and number with real customers who have agreed to be featured.

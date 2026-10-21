@@ -87,16 +87,16 @@ export default function Pricing() {
           >
             <div className="min-h-[104px] rounded-2xl bg-canvas px-6 pb-6 pt-6 max-[1679px]:xl:min-h-[130px]">
               <div className="flex items-center justify-between gap-3">
-                <h3 className="text-[24px] font-medium leading-8 tracking-[-0.02em] text-head">{p.name}</h3>
+                <h3 className="text-[24px] font-semibold leading-8 tracking-[-0.03em] text-ink">{p.name}</h3>
                 {p.featured && (
                   <span className="rounded-full bg-brand px-3 py-1 text-[12px] font-medium leading-none text-white">Most popular</span>
                 )}
               </div>
-              <p className="mt-[10px] text-[14px] leading-5 text-body">{p.tagline}</p>
+              <p className="mt-[10px] text-[15px] leading-[1.55] text-body">{p.tagline}</p>
             </div>
             <div className="px-3">
               <p className="mt-[45px] flex flex-wrap items-baseline gap-x-2 gap-y-1 leading-none">
-                <span className="text-[46px] font-medium tracking-[-0.045em] text-head">
+                <span className="font-display text-[48px] font-semibold tracking-[-0.035em] text-ink">
                   {fmt(yearly ? p.yearly : p.monthly)}
                 </span>
                 <span className="text-[14px] text-body">{p.monthly === 0 ? "/ forever" : yearly ? "/ user / mo, billed yearly" : "/ user / month"}</span>
@@ -104,10 +104,10 @@ export default function Pricing() {
               <Btn variant={p.variant} href="/dashboard" className="mt-[29px] !h-11 w-full">
                 {p.cta}
               </Btn>
-              <h4 className="mt-[54px] text-[19px] font-normal leading-none text-head">Includes:</h4>
+              <h4 className="mt-[54px] text-[18px] font-semibold leading-none text-ink">Includes:</h4>
               <ul className="mt-[30px] flex flex-col gap-[18px]">
                 {p.features.map((f) => (
-                  <li key={f} className="flex items-center gap-[6px] text-[15px] leading-5 text-body">
+                  <li key={f} className="flex items-center gap-[8px] text-[16px] leading-[1.4] text-body">
                     <Verify size={16} variant="Bold" color="#323234" aria-hidden className="shrink-0" />
                     {f}
                   </li>

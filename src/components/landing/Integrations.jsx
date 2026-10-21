@@ -73,11 +73,11 @@ function Cta({ className = "" }) {
     <div className={`flex flex-col items-center text-center ${className}`}>
       <h2
         id="int-title"
-        className="text-balance text-[32px] font-[580] leading-[1.14] tracking-[-0.021em] text-head sm:text-[40px] xl:text-[44px] xl:leading-[52px]"
+        className="text-balance text-[34px] font-semibold leading-[1.08] tracking-[-0.026em] text-ink sm:text-[42px] xl:text-[52px]"
       >
         Works seamlessly with your tools
       </h2>
-      <p className="mt-[15px] max-w-[640px] text-pretty text-[16px] leading-6 tracking-[0.01em] text-body">
+      <p className="mt-4 max-w-[640px] text-pretty text-[16.5px] leading-[1.65] text-body sm:text-[18px]">
         Sync email, calendars, billing, and the SaaS apps you already use in minutes.
       </p>
       <Btn variant="light" href="/dashboard" className="mt-[26px]">

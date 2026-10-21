@@ -47,7 +47,7 @@ function HealthVisual() {
         </svg>
         <div className="text-center leading-none">
           <p className="text-[28px] font-medium tracking-[-0.03em] text-head">82</p>
-          <p className="mt-1 text-[11px] text-body">Health</p>
+          <p className="mt-1 text-[12px] text-body">Health</p>
         </div>
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-2">
@@ -74,7 +74,7 @@ function BoardVisual() {
     <div className="flex h-full items-center justify-center gap-[10px] px-5">
       {cols.map(([title, cards]) => (
         <div key={title} className="flex h-[184px] min-w-0 flex-1 flex-col gap-2 rounded-xl bg-white/55 p-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,.8)]">
-          <p className="px-1 text-[11px] font-medium text-body">{title}</p>
+          <p className="px-1 text-[12px] font-medium text-body">{title}</p>
           {cards.map(([w, color], i) => (
             <div key={i} className={`flex h-[40px] flex-col justify-center gap-[6px] px-2 ${surface}`}>
               <span className="h-[5px] rounded-full" style={{ background: color, width: "30%" }} />
@@ -116,7 +116,7 @@ export default function Insights({ brand }) {
         title="Growth playbooks for modern SaaS teams"
         sub="Practical guides on pipeline, retention, customer success, and scaling operations."
         id="insights-title"
-        titleClass="xl:!text-[44px]"
+        
       />
       <ul className="group/list mx-auto mt-10 grid max-w-[460px] grid-cols-1 gap-[25px] lg:mt-[32px] lg:max-w-none lg:grid-cols-3">
         {POSTS.map((p, i) => (
@@ -135,8 +135,8 @@ export default function Insights({ brand }) {
               </span>
             </div>
             <div className="px-[6px] pt-[22px]">
-              <h3 className="text-[22px] font-normal leading-8 tracking-[-0.03em] text-head">{p.title}</h3>
-              <p className="mt-2 pb-[18px] text-[15px] leading-6 text-body">{p.body}</p>
+              <h3 className="text-[22px] font-medium leading-[1.25] tracking-[-0.025em] text-ink">{p.title}</h3>
+              <p className="mt-2 pb-[18px] text-[16px] leading-[1.6] text-body">{p.body}</p>
             </div>
             <div className="-mx-[10px] mt-auto flex h-[67px] items-center justify-between border-t border-black/[.05] px-[18px]">
               <Btn variant="light" href="#insights-title" className="!h-9 !px-5">

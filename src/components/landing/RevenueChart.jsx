@@ -49,7 +49,7 @@ export default function RevenueChart() {
   return (
     <div className="rounded-[20px] bg-white p-4 sm:px-5 sm:pb-[17px] sm:pt-4">
       <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
-        <h3 className="text-[19px] leading-[30px] tracking-[-0.01em] text-head">Revenue vs Target</h3>
+        <h3 className="font-display text-[20px] font-medium leading-[30px] tracking-[-0.02em] text-ink">Revenue vs Target</h3>
         <ul className="flex -translate-y-[3px] items-center gap-[16px] text-[13px] leading-6 tracking-[-0.005em] text-body">
           <li className="flex items-center gap-[7px]">
             <span className="h-2 w-2 rounded-full bg-brand" /> Closed revenue
@@ -125,10 +125,10 @@ export default function RevenueChart() {
                       style={{ bottom: actual }}
                     >
                       <p className="text-[12px] font-medium leading-4 text-head">{d.full[i]}</p>
-                      <p className="mt-[5px] flex items-center gap-[6px] whitespace-nowrap text-[10px] leading-4 text-body">
+                      <p className="mt-[5px] flex items-center gap-[6px] whitespace-nowrap text-[12px] leading-4 text-body">
                         <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-brand" /> Closed : {d.values[i][1]}
                       </p>
-                      <p className="mt-[3px] flex items-center gap-[6px] whitespace-nowrap text-[10px] leading-4 text-body">
+                      <p className="mt-[3px] flex items-center gap-[6px] whitespace-nowrap text-[12px] leading-4 text-body">
                         <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-[#efcaa3]" /> Target : {d.values[i][0]}
                       </p>
                     </div>
@@ -138,7 +138,7 @@ export default function RevenueChart() {
             })}
           </div>
 
-          <div className="mt-[9px] flex justify-between text-[10px] leading-6 text-body sm:text-[13px]" aria-hidden>
+          <div className="mt-[9px] flex justify-between text-[12px] leading-6 text-body sm:text-[13px]" aria-hidden>
             {d.labels.map((l) => (
               <span key={l} className="w-[38px] min-w-[14px] shrink text-center">{l}</span>
             ))}

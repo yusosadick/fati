@@ -26,3 +26,6 @@ npm-debug.log*
 
 # screenshot comparison output
 scripts/out
+
+# local reference project used for design inspiration (large, has its own git history)
+docs/skymoh

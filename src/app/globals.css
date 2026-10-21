@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
   --breakpoint-3xl: 97.5rem;
 
   --color-brand: #e17200;
@@ -149,12 +150,13 @@ html {
 .pill {
   display: inline-flex;
   align-items: center;
-  height: 32px;
+  height: 34px;
   padding: 0 16px;
   border-radius: 999px;
   background: #fff;
-  font-size: 15px;
-  letter-spacing: -0.01em;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
   line-height: 1;
   color: var(--color-head);
   box-shadow: 0 0 0 1px rgba(40, 30, 20, 0.07), 0 1px 2px rgba(40, 30, 20, 0.04);
@@ -167,12 +169,12 @@ html {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 44px;
-  padding: 0 22px;
+  height: 46px;
+  padding: 0 24px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: -0.005em;
-  font-weight: 500;
+  font-weight: 560;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
@@ -218,11 +220,46 @@ html {
 }
 .pop-in { animation: pop-in 0.18s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 
-/* Draw-in for the AI forecast line. */
+/* Draw-in for the forecast line. */
 @keyframes draw {
   to { stroke-dashoffset: 0; }
 }
 
+/* Soft breathing glow behind the workspace hub. */
+@keyframes hub-pulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.hub-glow { animation: hub-pulse 4s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .pop-in { animation: none; }
+  .hub-glow { animation: none; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Landing typography                                                  */
+/* ------------------------------------------------------------------ */
+
+/* Geist for reading, DM Sans for headings, numbers and the wordmark. */
+.landing-root {
+  --font-sans: var(--font-geist-text), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  font-feature-settings: "calt", "kern";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-head);
+}
+.landing-root :is(h1, h2, h3, h4, .font-display) {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+.landing-root :is(p, li, blockquote, figcaption) { text-wrap: pretty; }
+@media (max-width: 639px) {
+  .landing-root { font-size: 16px; }
 }

@@ -7,6 +7,7 @@ import Capabilities from "./Capabilities";
 import HowItWorks from "./HowItWorks";
 import Pricing from "./Pricing";
 import Testimonials from "./Testimonials";
+import HubSection from "./HubSection";
 import Faq from "./Faq";
 import Integrations from "./Integrations";
 import Insights from "./Insights";
@@ -22,8 +23,10 @@ export default function Landing() {
       <div className="relative overflow-x-clip bg-canvas">
         <div aria-hidden className="hero-stairs pointer-events-none absolute inset-x-0 top-0 h-[650px]" />
 
-        <div className={`sticky top-0 z-30 bg-canvas/80 backdrop-blur-md ${GUTTER}`}>
-          <Navbar />
+        <div className={`pointer-events-none sticky top-0 z-30 ${GUTTER}`}>
+          <div className="pointer-events-auto">
+            <Navbar />
+          </div>
         </div>
 
         <div className={`relative ${GUTTER}`}>
@@ -43,6 +46,7 @@ export default function Landing() {
             <HowItWorks />
             <Pricing />
             <Testimonials />
+            <HubSection />
             <Faq />
           </div>
         </div>

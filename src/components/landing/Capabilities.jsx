@@ -59,13 +59,13 @@ export default function Capabilities() {
           <Pill>Core capabilities</Pill>
           <h2
             id="cap-title"
-            className="mt-[26px] max-w-[520px] text-[34px] font-[580] leading-[1.14] tracking-[-0.021em] text-head sm:text-[40px] xl:text-[44px] xl:leading-[52px]"
+            className="mt-6 max-w-[640px] text-[34px] font-semibold leading-[1.08] tracking-[-0.026em] text-ink sm:text-[42px] xl:text-[52px]"
           >
             {BRAND} helps you <br className="hidden sm:inline" />run a smarter business
           </h2>
         </div>
         <div className="xl:pt-[7px]">
-          <p className="max-w-[560px] text-pretty text-[16px] leading-7 text-body sm:text-[16.5px]">
+          <p className="max-w-[560px] text-pretty text-[17px] leading-[1.65] text-body sm:text-[18px]">
             {BRAND} unifies your pipeline, customer records, projects and team inbox in one platform, with live reporting
             that shows what is working across sales, retention and delivery.
           </p>
@@ -87,10 +87,10 @@ export default function Capabilities() {
                 <Icon color={active ? "#fff" : "#323234"} />
               </span>
               <div className="-mt-[3px] min-w-0 flex-1">
-                <h3 className="text-[24px] font-normal leading-[34px] tracking-[-0.005em] text-head sm:text-[26.4px]">
+                <h3 className="text-[22px] font-medium leading-[1.25] tracking-[-0.025em] text-ink sm:text-[26px]">
                   {title}
                 </h3>
-                <p className="mt-2 max-w-[520px] text-[15.5px] leading-[31px] text-body sm:text-[16.6px]">{body}</p>
+                <p className="mt-2 max-w-[520px] text-[16px] leading-[1.65] text-body sm:text-[17px]">{body}</p>
               </div>
               {active && (
                 <span
