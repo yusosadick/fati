@@ -50,7 +50,7 @@ export default function Landing() {
             <Faq />
           </div>
         </div>
-        <div className="mt-20">
+        <div className="mt-12 sm:mt-14 xl:mt-20">
           <Integrations />
           <div className={`bg-tint ${GUTTER}`}>
             <div className="mx-auto max-w-[1280px]">

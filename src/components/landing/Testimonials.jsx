@@ -153,17 +153,16 @@ export default function Testimonials() {
   const pick = (id) => setActive(STORIES.findIndex((x) => x.id === id));
 
   return (
-    <section id="testimonial" aria-labelledby="proof-title" className="scroll-mt-6 pt-10 xl:pt-20">
+    <section id="testimonial" aria-labelledby="proof-title" className="scroll-mt-6 pt-12 sm:pt-14 lg:pt-16 xl:pt-20">
       <SectionHead
         badge="Customer stories"
         title="Trusted by teams that sell and ship"
         sub={`From two-person startups to growing SaaS companies, teams use ${BRAND} to close deals faster and keep customers longer.`}
         id="proof-title"
-        className="pt-10 xl:pt-20"
       />
 
       {/* Desktop collage: wider than the text column but always inside the page margins. The centre tile is the selected story. */}
-      <div className="relative mt-10 hidden xl:mt-[48px] xl:block">
+      <div className="relative mt-7 hidden xl:mt-9 xl:block">
         <div className="relative left-1/2 w-[min(1480px,calc(100vw-96px))] -translate-x-1/2 [container-type:inline-size]">
           <div aria-hidden className="pointer-events-none absolute -inset-x-[3%] inset-y-[4%] bg-[radial-gradient(55%_55%_at_50%_48%,rgba(253,226,200,.7),rgba(238,240,251,.45)_55%,transparent_78%)]" />
           <div className="relative w-full" style={{ aspectRatio: `${CW} / ${CH}` }}>
@@ -198,8 +197,8 @@ export default function Testimonials() {
       </div>
 
       {/* Mobile and tablet: one big photo, a thumbnail strip underneath. */}
-      <div className="mt-10 xl:hidden">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[26px] bg-fog shadow-[0_0_0_1px_rgba(40,30,20,.05),0_28px_50px_-30px_rgba(40,30,20,.5)]">
+      <div className="mx-auto mt-6 max-w-[640px] xl:hidden">
+        <div className="relative aspect-[4/3] max-h-[440px] w-full overflow-hidden rounded-[22px] sm:aspect-[16/10] sm:rounded-[26px] bg-fog shadow-[0_0_0_1px_rgba(40,30,20,.05),0_28px_50px_-30px_rgba(40,30,20,.5)]">
           {STORIES.map((st, i) => (
             <div key={st.id} aria-hidden={i !== active} className={`absolute inset-0 transition-opacity duration-500 ease-out ${i === active ? "opacity-100" : "opacity-0"}`}>
               <Photo story={st} sizes="(min-width: 640px) 640px, 100vw" />
@@ -230,7 +229,7 @@ export default function Testimonials() {
       </div>
 
       {/* Trusted by companies */}
-      <div className="mt-10 flex flex-col items-center gap-5 text-center">
+      <div className="mt-7 flex flex-col items-center gap-4 text-center sm:mt-9">
         <p className="text-[15px] leading-6 text-body">
           <span className="font-medium text-head">Trusted by 2,000+ SaaS teams.</span> Rated 4.8 on G2 and Capterra.
         </p>
@@ -248,13 +247,13 @@ export default function Testimonials() {
         role="region"
         aria-live="polite"
         aria-label={`${s.name}’s story`}
-        className="mx-auto mt-12 grid max-w-[1080px] grid-cols-1 gap-5 rounded-[32px] bg-[linear-gradient(180deg,#eceffb_0%,#f6f2f3_50%,#fde6d3_100%)] p-3 shadow-[0_30px_60px_-40px_rgba(225,114,0,.4),inset_0_0_0_1px_rgba(255,255,255,.85)] sm:p-4 lg:grid-cols-[minmax(0,1fr)_268px]"
+        className="mx-auto mt-8 grid max-w-[1080px] sm:mt-10 grid-cols-1 gap-5 rounded-[32px] bg-[linear-gradient(180deg,#eceffb_0%,#f6f2f3_50%,#fde6d3_100%)] p-3 shadow-[0_30px_60px_-40px_rgba(225,114,0,.4),inset_0_0_0_1px_rgba(255,255,255,.85)] sm:p-4 lg:grid-cols-[minmax(0,1fr)_268px]"
       >
-        <figure className="relative flex min-h-[320px] flex-col justify-between rounded-[24px] bg-white p-6 shadow-[0_0_0_1px_rgba(120,110,160,.08)] sm:p-8">
+        <figure className="relative flex min-h-[280px] flex-col justify-between rounded-[24px] bg-white p-5 shadow-[0_0_0_1px_rgba(120,110,160,.08)] sm:p-8">
           <svg aria-hidden width="40" height="32" viewBox="0 0 40 32" fill="#e17200" className="opacity-90">
             <path d="M0 32V19C0 8.500 5.500 2 15 0l1.500 4.500C11 6.500 9 10 9 14h7v18H0Zm23 0V19C23 8.500 28.500 2 38 0l1.500 4.500C34 6.500 32 10 32 14h7v18H23Z" />
           </svg>
-          <blockquote key={s.id} className="pop-in font-display mt-5 text-pretty text-[21px] font-medium leading-[1.42] tracking-[-0.022em] text-ink sm:text-[28px]">
+          <blockquote key={s.id} className="pop-in font-display mt-4 text-pretty t-quote font-medium tracking-[-0.022em] text-ink">
             {s.quote}
           </blockquote>
           <figcaption className="mt-8 flex flex-wrap items-center justify-between gap-x-4 gap-y-4">
@@ -263,21 +262,21 @@ export default function Testimonials() {
                 <Image src={s.photo} alt="" fill sizes="52px" className="object-cover" style={{ objectPosition: s.pos.replace(/ .*/, " 24%") }} />
               </span>
               <div>
-                <p className="font-display text-[18px] font-semibold leading-6 tracking-[-0.02em] text-ink sm:text-[20px]">{s.name}</p>
+                <p className="font-display t-h3 font-semibold leading-6 tracking-[-0.02em] text-ink">{s.name}</p>
                 <p className="text-[15px] leading-5 text-body">{s.role}, {s.company}</p>
               </div>
             </div>
             <div aria-hidden className="shrink-0">
-              <Logo logo={s.logo} className="text-[24px]" size="[&_svg]:h-9" />
+              <Logo logo={s.logo} className="text-[20px]" size="[&_svg]:h-8" />
             </div>
           </figcaption>
         </figure>
 
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-1">
           {s.stats.map(([v, l]) => (
-            <div key={`${s.id}-${l}`} className="pop-in flex min-h-[150px] flex-col items-center justify-center rounded-[24px] bg-white/80 px-4 text-center shadow-[0_0_0_1px_rgba(120,110,160,.08)] backdrop-blur-sm lg:min-h-0">
-              <p className="font-display whitespace-nowrap text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink sm:text-[46px]">{v}</p>
-              <p className="mt-2 text-[14px] leading-5 text-body sm:text-[17px] sm:leading-6">{l}</p>
+            <div key={`${s.id}-${l}`} className="pop-in flex min-h-[110px] flex-col items-center justify-center rounded-[24px] bg-white/80 px-4 text-center shadow-[0_0_0_1px_rgba(120,110,160,.08)] backdrop-blur-sm lg:min-h-0">
+              <p className="font-display t-stat whitespace-nowrap font-semibold tracking-[-0.03em] text-ink">{v}</p>
+              <p className="mt-1.5 t-body text-body">{l}</p>
             </div>
           ))}
         </div>

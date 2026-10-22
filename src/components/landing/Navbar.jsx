@@ -94,9 +94,9 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="relative z-20 mx-auto w-full max-w-[1280px] py-3 sm:py-4">
+    <header className="relative z-20 mx-auto w-full max-w-[1280px] py-2.5 sm:py-3">
       <div
-        className={`flex h-[68px] items-center justify-between gap-4 rounded-full border pl-3.5 pr-2.5 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,box-shadow,border-color] duration-300 ease-out sm:h-[78px] sm:pl-5 ${
+        className={`flex h-[58px] items-center justify-between gap-4 rounded-full border pl-3.5 pr-2.5 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,box-shadow,border-color] duration-300 ease-out sm:h-[78px] sm:pl-5 ${
           scrolled || open
             ? "border-white/70 bg-white/80 shadow-[0_1px_0_rgba(255,255,255,.9)_inset,0_10px_30px_-12px_rgba(60,40,20,.28),0_2px_6px_-2px_rgba(60,40,20,.08)]"
             : "border-white/50 bg-white/55 shadow-[0_1px_0_rgba(255,255,255,.8)_inset,0_1px_2px_rgba(60,40,20,.05)]"
@@ -108,7 +108,7 @@ export default function Navbar() {
           className="flex items-center gap-2.5 rounded-full py-1 pr-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         >
           <Logo size={38} />
-          <span className="font-display text-[24px] font-semibold leading-none tracking-[-0.03em] text-ink">{BRAND}</span>
+          <span className="font-display text-[21px] font-semibold leading-none tracking-[-0.03em] text-ink sm:text-[24px]">{BRAND}</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
@@ -146,14 +146,14 @@ export default function Navbar() {
           >
             Sign in
           </Link>
-          <Btn variant="brand" href="/dashboard" className="!h-12 !px-6">
+          <Btn variant="brand" href="/dashboard" className="!h-11 !px-5 xl:!h-12 xl:!px-6">
             Start free trial
           </Btn>
         </div>
 
         <button
           type="button"
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-black/[.05] text-ink transition-colors hover:bg-black/[.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-black/[.05] text-ink transition-colors hover:bg-black/[.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -176,7 +176,7 @@ export default function Navbar() {
                     href={l.href}
                     onClick={() => setOpen(false)}
                     aria-current={active === l.href ? "location" : undefined}
-                    className={`flex items-center justify-between rounded-2xl px-4 py-3.5 text-[17px] font-medium transition-colors hover:bg-black/[.04] ${
+                    className={`flex items-center justify-between rounded-2xl px-4 py-3 text-[16px] font-medium transition-colors hover:bg-black/[.04] ${
                       active === l.href ? "bg-black/[.045] text-ink" : "text-head"
                     }`}
                   >

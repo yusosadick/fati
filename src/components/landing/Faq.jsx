@@ -35,7 +35,7 @@ function Toggle({ open }) {
   return (
     <span
       aria-hidden
-      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-[11px] transition-[transform,box-shadow] duration-200 ease-out group-active:scale-95 sm:h-[46px] sm:w-[46px] ${
+      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] transition-[transform,box-shadow] duration-200 ease-out group-active:scale-95 sm:h-[42px] sm:w-[42px] ${
         open
           ? "bg-white shadow-[0_0_0_1px_rgba(120,110,160,.14),0_2px_6px_-2px_rgba(40,30,20,.12)]"
           : "bg-gradient-to-br from-[#f8b06a] via-[#ee8a2c] to-[#e17200] shadow-[inset_0_1px_0_rgba(255,255,255,.35),0_12px_22px_-8px_rgba(225,114,0,.6)] group-hover:-translate-y-px group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,.35),0_16px_26px_-8px_rgba(225,114,0,.7)]"
@@ -70,7 +70,7 @@ function Item({ q, a, open, onToggle, id }) {
           onClick={onToggle}
           className="group flex w-full items-center justify-between gap-5 rounded-[22px] px-4 py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:px-6 sm:py-[18px]"
         >
-          <span className="font-display text-[18px] font-medium leading-[1.3] tracking-[-0.02em] text-ink sm:text-[22px] xl:text-[25px]">
+          <span className="font-display text-[17px] font-medium leading-[1.3] tracking-[-0.02em] text-ink sm:text-[22px] xl:text-[25px]">
             {q}
           </span>
           <Toggle open={open} />
@@ -84,7 +84,7 @@ function Item({ q, a, open, onToggle, id }) {
       >
         <div className="overflow-hidden">
           <p
-            className={`max-w-[780px] px-4 pb-5 text-[15px] leading-[1.7] text-body transition-opacity duration-300 sm:px-6 sm:pb-6 sm:text-[17px] ${
+            className={`max-w-[780px] px-4 pb-5 text-[14.5px] leading-[1.7] text-body transition-opacity duration-300 sm:px-6 sm:pb-6 sm:text-[17px] ${
               open ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -101,16 +101,16 @@ export default function Faq() {
   const uid = useId();
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="scroll-mt-6 pt-20 xl:pt-40">
+    <section id="faq" aria-labelledby="faq-title" className="scroll-mt-6 pt-12 sm:pt-14 lg:pt-16 xl:pt-20">
       <div className="rounded-[24px] bg-white px-4 pb-10 pt-12 sm:px-10 xl:px-[clamp(40px,calc(40px+(100vw-1280px)*0.1),80px)] xl:pb-[96px] xl:pt-[88px]">
         <header className="mx-auto flex max-w-[680px] flex-col items-center text-center">
           <h2
             id="faq-title"
-            className="text-balance text-[34px] font-semibold leading-[1.06] tracking-[-0.028em] text-ink sm:text-[46px] xl:text-[56px]"
+            className="text-balance text-[28px] font-semibold leading-[1.08] tracking-[-0.028em] text-ink sm:text-[40px] lg:text-[46px] xl:text-[56px]"
           >
             Frequently asked questions
           </h2>
-          <p className="mt-4 max-w-[560px] text-pretty text-[16px] leading-[1.65] text-body sm:text-[18px]">
+          <p className="mt-3 max-w-[560px] text-pretty t-lead text-body sm:mt-4">
             Everything you need to know about {BRAND}: product, pricing, features and support, all in one place.
           </p>
         </header>

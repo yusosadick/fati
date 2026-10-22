@@ -2,7 +2,7 @@ import { Btn, Pill } from "./ui";
 import { BRAND } from "./config";
 import RevenueChart from "./RevenueChart";
 
-const base = { width: 34, height: 34, viewBox: "0 0 26 26", fill: "none", "aria-hidden": true };
+const base = { width: 26, height: 26, viewBox: "0 0 26 26", fill: "none", "aria-hidden": true };
 
 function FunnelIcon({ color }) {
   return (
@@ -53,19 +53,19 @@ const FEATURES = [
 
 export default function Capabilities() {
   return (
-    <section id="features" aria-labelledby="cap-title" className="scroll-mt-6 pt-16 xl:pt-[120px]">
+    <section id="features" aria-labelledby="cap-title" className="scroll-mt-6 pt-12 sm:pt-14 lg:pt-16 xl:pt-20">
       <div className="grid grid-cols-1 items-start gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,min(550px,48%))] xl:gap-[50px]">
         <div>
           <Pill>Core capabilities</Pill>
           <h2
             id="cap-title"
-            className="mt-6 max-w-[640px] text-[34px] font-semibold leading-[1.08] tracking-[-0.026em] text-ink sm:text-[42px] xl:text-[52px]"
+            className="mt-5 max-w-[640px] t-h2 font-semibold tracking-[-0.026em] text-ink"
           >
             {BRAND} helps you <br className="hidden sm:inline" />run a smarter business
           </h2>
         </div>
         <div className="xl:pt-[7px]">
-          <p className="max-w-[560px] text-pretty text-[17px] leading-[1.65] text-body sm:text-[18px]">
+          <p className="max-w-[560px] text-pretty t-lead text-body">
             {BRAND} unifies your pipeline, customer records, projects and team inbox in one platform, with live reporting
             that shows what is working across sales, retention and delivery.
           </p>
@@ -75,22 +75,20 @@ export default function Capabilities() {
         </div>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 items-center gap-10 xl:mt-[81px] xl:grid-cols-[minmax(0,1fr)_minmax(0,min(620px,52%))] xl:gap-[30px]">
-        <ul className="flex flex-col gap-[46px] xl:pr-4">
+      <div className="mt-8 grid grid-cols-1 items-center gap-8 sm:mt-10 xl:mt-14 xl:grid-cols-[minmax(0,1fr)_minmax(0,min(620px,52%))] xl:gap-[30px]">
+        <ul className="flex flex-col gap-8 sm:gap-[46px] xl:pr-4">
           {FEATURES.map(({ title, body, icon: Icon, active }) => (
-            <li key={title} className="relative flex items-start gap-[22px] pl-0 sm:pl-4">
+            <li key={title} className="relative flex items-start gap-4 pl-0 sm:gap-[22px] sm:pl-4">
               <span
-                className={`flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full ${
+                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full sm:h-[60px] sm:w-[60px] ${
                   active ? "bg-peach" : "bg-fog"
                 }`}
               >
                 <Icon color={active ? "#fff" : "#323234"} />
               </span>
               <div className="-mt-[3px] min-w-0 flex-1">
-                <h3 className="text-[22px] font-medium leading-[1.25] tracking-[-0.025em] text-ink sm:text-[26px]">
-                  {title}
-                </h3>
-                <p className="mt-2 max-w-[520px] text-[16px] leading-[1.65] text-body sm:text-[17px]">{body}</p>
+                <h3 className="text-[18px] font-medium leading-[1.3] tracking-[-0.025em] text-ink sm:text-[22px] xl:text-[26px]">{title}</h3>
+                <p className="mt-1.5 max-w-[520px] t-body text-body">{body}</p>
               </div>
               {active && (
                 <span
@@ -102,7 +100,7 @@ export default function Capabilities() {
           ))}
         </ul>
 
-        <div className="rounded-[24px] bg-cream p-4 sm:p-8">
+        <div className="rounded-[22px] bg-cream p-2.5 sm:rounded-[24px] sm:p-8">
           <RevenueChart />
         </div>
       </div>

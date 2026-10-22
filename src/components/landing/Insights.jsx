@@ -110,7 +110,7 @@ const POSTS = [
 
 export default function Insights({ brand }) {
   return (
-    <section aria-labelledby="insights-title" className="bg-tint px-0 pb-[80px] pt-[26px]">
+    <section aria-labelledby="insights-title" className="bg-tint px-0 pb-12 pt-5 sm:pb-16 xl:pb-20">
       <SectionHead
         badge={`${brand} insights`}
         title="Growth playbooks for modern SaaS teams"
@@ -118,7 +118,7 @@ export default function Insights({ brand }) {
         id="insights-title"
         
       />
-      <ul className="group/list mx-auto mt-10 grid max-w-[460px] grid-cols-1 gap-[25px] lg:mt-[32px] lg:max-w-none lg:grid-cols-3">
+      <ul className="group/list mx-auto mt-10 grid max-w-[520px] grid-cols-1 gap-[25px] lg:mt-[32px] lg:max-w-none lg:grid-cols-3">
         {POSTS.map((p, i) => (
           <li
             key={p.title}
@@ -135,7 +135,7 @@ export default function Insights({ brand }) {
               </span>
             </div>
             <div className="px-[6px] pt-[22px]">
-              <h3 className="text-[22px] font-medium leading-[1.25] tracking-[-0.025em] text-ink">{p.title}</h3>
+              <h3 className="t-h3 font-medium tracking-[-0.025em] text-ink">{p.title}</h3>
               <p className="mt-2 pb-[18px] text-[16px] leading-[1.6] text-body">{p.body}</p>
             </div>
             <div className="-mx-[10px] mt-auto flex h-[67px] items-center justify-between border-t border-black/[.05] px-[18px]">

@@ -58,13 +58,13 @@ export default function Footer() {
 
   return (
     <footer id="company" className="scroll-mt-6 bg-white text-ink" aria-label={`${BRAND} footer`}>
-      <section aria-label={`Why teams choose ${BRAND}`} className={`${GUTTER} pb-10 pt-14 sm:pt-16`}>
+      <section aria-label={`Why teams choose ${BRAND}`} className={`${GUTTER} pb-8 pt-10 sm:pb-10 sm:pt-16`}>
         <ul className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
           {ASSURANCE.map(({ icon: Icon, title, copy }) => (
             <li key={title} className="flex items-start gap-3.5 sm:items-center">
               <Icon size={34} variant="Linear" color="#e17200" aria-hidden className="mt-0.5 shrink-0 sm:mt-0" />
               <span>
-                <strong className="font-display block text-[16px] font-semibold leading-[1.3] tracking-[-0.015em] text-ink">{title}</strong>
+                <strong className="font-display block text-[15px] font-semibold leading-[1.3] tracking-[-0.015em] text-ink sm:text-[16px]">{title}</strong>
                 <small className="mt-0.5 block text-[14px] leading-[1.45] text-body">{copy}</small>
               </span>
             </li>
@@ -79,9 +79,9 @@ export default function Footer() {
             <div className="col-span-2 lg:col-span-1">
               <Link href="/" aria-label={`${BRAND} home`} className={`inline-flex items-center gap-3 ${linkCls}`}>
                 <Logo size={40} />
-                <span className="font-display text-[28px] font-semibold leading-none tracking-[-0.035em]">{BRAND}</span>
+                <span className="font-display text-[24px] font-semibold leading-none tracking-[-0.035em] sm:text-[28px]">{BRAND}</span>
               </Link>
-              <p className="font-display mt-5 text-[24px] font-medium leading-[1.2] tracking-[-0.03em] sm:text-[26px]">
+              <p className="font-display mt-4 text-[20px] font-medium leading-[1.2] tracking-[-0.03em] sm:mt-5 sm:text-[24px]">
                 Every lead. Every customer.
                 <br />
                 One calm workspace.
@@ -121,7 +121,7 @@ export default function Footer() {
             </div>
 
             <div className="col-span-2 rounded-[24px] bg-white p-6 shadow-[0_0_0_1px_rgba(40,30,20,.06),0_24px_40px_-28px_rgba(225,114,0,.45)] lg:col-span-1">
-              <p className="font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.03em] text-ink">Ready when you are</p>
+              <p className="font-display t-h3 font-semibold leading-[1.2] tracking-[-0.03em] text-ink">Ready when you are</p>
               <p className="mt-1.5 text-[15px] leading-[1.5] text-body">Free for 14 days. No credit card, cancel any time.</p>
               <div className="mt-5 flex flex-col gap-3">
                 <Btn variant="brand" href="/dashboard" className="w-full">

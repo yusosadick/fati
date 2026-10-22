@@ -54,13 +54,15 @@ function Skeleton({ w }) {
  */
 export default function HubFlow() {
   const wrapRef = useRef(null);
+  const outerRef = useRef(null);
   const [scale, setScale] = useState(1);
   const [shown, setShown] = useState(false);
   const [active, setActive] = useState(null);
 
   useEffect(() => {
     const el = wrapRef.current;
-    if (!el) return;
+    const outer = outerRef.current;
+    if (!el || !outer) return;
     const fit = () => setScale(Math.min(1, el.clientWidth / W));
     fit();
     const ro = new ResizeObserver(fit);
@@ -80,7 +82,7 @@ export default function HubFlow() {
         },
         { threshold: 0.3 },
       );
-      io.observe(el);
+      io.observe(outer);
     }
     return () => {
       ro.disconnect();
@@ -90,12 +92,43 @@ export default function HubFlow() {
 
   return (
     <div
+      ref={outerRef}
       role="img"
       aria-label="Diagram: the Fati workspace at the centre, connected to lead scoring, deal risk alerts, customer health, follow-up reminders and pipeline forecast."
       className="rounded-[32px] bg-[linear-gradient(180deg,#eceffb_0%,#f6f2f3_48%,#fde4d0_100%)] p-3 shadow-[0_30px_60px_-36px_rgba(225,114,0,.35),inset_0_0_0_1px_rgba(255,255,255,.85)] sm:p-[14px]"
     >
       <div className="relative overflow-hidden rounded-[24px] bg-white shadow-[0_0_0_1px_rgba(120,110,160,.08)]">
-        <div ref={wrapRef} className="relative w-full" style={{ aspectRatio: `${W} / ${H}` }}>
+        {/* Phones: a stacked layout with real, readable text instead of a shrunken diagram. */}
+        <div className="px-4 py-5 sm:hidden" aria-hidden>
+          <div className="flex items-center gap-3">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#f9b06a] via-[#ee8a2c] to-[#e17200] shadow-[inset_0_1px_0_rgba(255,255,255,.4),0_12px_20px_-8px_rgba(225,114,0,.65)]">
+              <Mark />
+            </span>
+            <span className="leading-tight">
+              <span className="block font-display text-[16px] font-semibold tracking-[-0.02em] text-ink">Your workspace</span>
+              <span className="block text-[13px] text-body">Everything connected</span>
+            </span>
+          </div>
+          <ul className="relative mt-3 ml-[21px] flex flex-col gap-2.5 border-l-2 border-[#e9e5ee] pl-5 pt-2">
+            {PILLS.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <li
+                  key={p.id}
+                  className={`relative flex h-11 items-center gap-2.5 rounded-xl bg-white px-3 text-[15px] font-[480] tracking-[-0.01em] text-head shadow-[0_0_0_1px_rgba(40,30,20,.07),0_8px_16px_-12px_rgba(40,30,20,.22)] transition-[opacity,transform] duration-500 ease-out before:absolute before:-left-5 before:top-1/2 before:h-0.5 before:w-4 before:bg-[#e9e5ee] ${
+                    shown ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+                  }`}
+                  style={{ transitionDelay: shown ? `${150 + i * 90}ms` : "0ms" }}
+                >
+                  <Icon size={19} variant="Bold" color="#ec8326" aria-hidden />
+                  {p.label}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div ref={wrapRef} className="relative hidden w-full sm:block" style={{ aspectRatio: `${W} / ${H}` }}>
           <div
             aria-hidden
             className="absolute left-0 top-0 origin-top-left"

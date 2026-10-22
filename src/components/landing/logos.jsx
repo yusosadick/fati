@@ -1,7 +1,7 @@
 // Fictional customer logos used for the "trusted by" row and the customer stories.
 const tone = "#55545a";
 
-export function Wordmark({ children, className = "text-[27px]" }) {
+export function Wordmark({ children, className = "text-[19px] sm:text-[20px] lg:text-[24px]" }) {
   return (
     <span
       className={`bg-gradient-to-b from-[#8f8e93] to-[#48474c] bg-clip-text font-bold leading-[1.15] tracking-[-0.035em] text-transparent ${className}`}

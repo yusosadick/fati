@@ -73,11 +73,11 @@ function Cta({ className = "" }) {
     <div className={`flex flex-col items-center text-center ${className}`}>
       <h2
         id="int-title"
-        className="text-balance text-[34px] font-semibold leading-[1.08] tracking-[-0.026em] text-ink sm:text-[42px] xl:text-[52px]"
+        className="text-balance t-h2 font-semibold tracking-[-0.026em] text-ink"
       >
         Works seamlessly with your tools
       </h2>
-      <p className="mt-4 max-w-[640px] text-pretty text-[16.5px] leading-[1.65] text-body sm:text-[18px]">
+      <p className="mt-3 max-w-[620px] text-pretty t-lead text-body sm:mt-4">
         Sync email, calendars, billing, and the SaaS apps you already use in minutes.
       </p>
       <Btn variant="light" href="/dashboard" className="mt-[26px]">
@@ -99,10 +99,10 @@ export default function Integrations() {
   return (
     <section
       aria-labelledby="int-title"
-      className="relative isolate overflow-hidden bg-gradient-to-b from-white from-55% to-tint xl:h-[930px]"
+      className="relative isolate overflow-hidden bg-gradient-to-b from-white from-55% to-tint xl:h-[850px]"
     >
       {/* Compact layout */}
-      <div className="flex flex-col items-center px-5 py-20 xl:hidden">
+      <div className="flex flex-col items-center px-5 py-12 sm:py-16 xl:hidden">
         <div className="flex flex-wrap items-center justify-center gap-4">
           {TILES.map((t) => (
             <TileChip key={t.label} t={t} className="!h-[72px] !w-[72px] scale-90" />
@@ -115,8 +115,8 @@ export default function Integrations() {
       </div>
 
       {/* Desktop diagram */}
-      <div className="absolute left-1/2 top-0 hidden h-[930px] w-[1440px] -translate-x-1/2 xl:block">
-        <svg viewBox="0 0 1440 930" className="absolute inset-0 h-full w-full" fill="none" aria-hidden>
+      <div className="absolute left-1/2 top-0 hidden h-[850px] w-[1440px] -translate-x-1/2 xl:block">
+        <svg viewBox="0 0 1440 850" className="absolute inset-0 h-full w-full" fill="none" aria-hidden>
           <defs>
             <linearGradient id="g-dome" x1="0" x2="0" y1="485" y2="930" gradientUnits="userSpaceOnUse">
               <stop offset="0" stopColor="#feecd7" />

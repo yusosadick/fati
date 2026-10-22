@@ -1,4 +1,4 @@
-import { Inter, DM_Sans, Geist, Bricolage_Grotesque } from "next/font/google";
+import { Inter, DM_Sans, Geist, Bricolage_Grotesque, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,6 +13,14 @@ const dmSans = DM_Sans({
   variable: "--font-dm",
   display: "swap",
   axes: ["opsz"],
+});
+
+// Hero headline (same pairing the MailRaft hero uses: Poppins headline, Inter body).
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 // Used only for the large footer wordmark.
@@ -37,7 +45,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSans.variable} ${geist.variable} ${wordmark.variable}`}>
+    <html lang="en" className={`${inter.variable} ${dmSans.variable} ${geist.variable} ${wordmark.variable} ${poppins.variable}`}>
       <body>{children}</body>
     </html>
   );
