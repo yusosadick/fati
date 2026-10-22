@@ -102,7 +102,7 @@ const POSTS = [
   },
   {
     tag: "Operations",
-    title: "A founder’s guide to a lean SaaS operation",
+    title: "A founder’s guide to a lean small business",
     body: "Projects, support and billing in one place: the playbook for small teams.",
     visual: <BoardVisual />,
   },
@@ -113,8 +113,8 @@ export default function Insights({ brand }) {
     <section aria-labelledby="insights-title" className="bg-tint px-0 pb-12 pt-5 sm:pb-16 xl:pb-20">
       <SectionHead
         badge={`${brand} insights`}
-        title="Growth playbooks for modern SaaS teams"
-        sub="Practical guides on pipeline, retention, customer success, and scaling operations."
+        title="Growth playbooks for modern businesses"
+        sub="Guides we plan to publish on pipeline, retention, customer success, and scaling operations."
         id="insights-title"
         
       />
@@ -140,10 +140,10 @@ export default function Insights({ brand }) {
             </div>
             <div className="-mx-[10px] mt-auto flex h-[67px] items-center justify-between border-t border-black/[.05] px-[18px]">
               <Btn variant="light" href="#insights-title" className="!h-9 !px-5">
-                Read more
+                Upcoming
               </Btn>
               <span className="flex items-center gap-[6px] text-[15px] text-body">
-                <Clock size={16} color="#6a6a6c" aria-hidden />4 min read
+                <Clock size={16} color="#6a6a6c" aria-hidden />Planned guide
               </span>
             </div>
           </li>

@@ -6,27 +6,27 @@ import { BRAND } from "./config";
 const ITEMS = [
   {
     q: "Is my data secure?",
-    a: "Absolutely. Customer data is encrypted in transit and at rest, access is controlled by roles, and we never sell or share your information. Our infrastructure runs on secure, industry-leading platforms with regular security audits and real-time monitoring to keep your records protected.",
+    a: "Security is a core design priority. We are building access controls and data protection into the platform from the start, and we will be clear about what is in place as features launch. We do not claim certifications, audits or monitoring that are not yet in place, and we will share details as they are.",
   },
   {
-    q: "How does the free trial work?",
-    a: "Start on any plan for 14 days with no credit card. You get full access to every feature, and we remind you before the trial ends. If you do nothing, you simply move to the free Starter plan.",
+    q: "Is there a free trial for new users?",
+    a: "Pricing and trial terms have not been finalized. You can explore the interface preview today without an account, and we will share plan and trial details before launch.",
   },
   {
     q: "Can I change my plan later?",
-    a: "Yes. Upgrade or downgrade at any time from your billing settings. Changes apply from your next billing date, and any unused time on a yearly plan is credited to your account.",
+    a: "Plans are still being designed. We intend to make moving between plans straightforward, and we will confirm the details when pricing is announced.",
   },
   {
     q: "Do you offer support for onboarding?",
-    a: `Every plan includes guided setup and help importing your contacts. Pro adds priority support, and Enterprise includes a dedicated success manager to get your whole team running on ${BRAND}.`,
+    a: `Onboarding and support options are still being planned for ${BRAND}. We will publish what is available alongside the platform launch.`,
   },
   {
     q: "Does the platform integrate with other tools?",
-    a: "Connect your email, calendar, billing and chat tools so contacts, deals and conversations stay in sync automatically, without copy-pasting between apps.",
+    a: "Integrations are planned. Connecting email, calendar and billing tools is part of the direction, but none are available yet.",
   },
   {
     q: "What happens if I cancel my subscription?",
-    a: "You can cancel at any time from settings. Your workspace stays available until the end of the billing period, and you can export all of your data as CSV whenever you like.",
+    a: "Subscriptions are not available yet. Our intention is for businesses to keep control of their own data, and we will publish clear terms before launch.",
   },
 ];
 

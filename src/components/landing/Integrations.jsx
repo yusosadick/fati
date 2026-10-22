@@ -75,13 +75,13 @@ function Cta({ className = "" }) {
         id="int-title"
         className="text-balance t-h2 font-semibold tracking-[-0.026em] text-ink"
       >
-        Works seamlessly with your tools
+        Built to connect with all of your tools
       </h2>
       <p className="mt-3 max-w-[620px] text-pretty t-lead text-body sm:mt-4">
-        Sync email, calendars, billing, and the SaaS apps you already use in minutes.
+        Integrations with email, calendars, billing and other apps are planned. None are available yet.
       </p>
       <Btn variant="light" href="/dashboard" className="mt-[26px]">
-        Book a demo
+        Contact FATI
       </Btn>
     </div>
   );

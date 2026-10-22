@@ -144,10 +144,10 @@ export default function Navbar() {
             href="/dashboard"
             className="rounded-full px-5 py-3 text-[15.5px] font-medium leading-none text-ink transition-colors hover:bg-black/[.05] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
           >
-            Sign in
+            Explore
           </Link>
           <Btn variant="brand" href="/dashboard" className="!h-11 !px-5 xl:!h-12 xl:!px-6">
-            Start free trial
+            Open preview
           </Btn>
         </div>
 
@@ -189,10 +189,10 @@ export default function Navbar() {
           </nav>
           <div className="mt-2 grid grid-cols-2 gap-3 border-t border-black/[.06] p-2 pt-4">
             <Btn variant="light" href="/dashboard" className="!h-12" onClick={() => setOpen(false)}>
-              Sign in
+              Explore
             </Btn>
             <Btn variant="brand" href="/dashboard" className="!h-12" onClick={() => setOpen(false)}>
-              Start free trial
+              Open preview
             </Btn>
           </div>
         </div>

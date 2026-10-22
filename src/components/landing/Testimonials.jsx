@@ -7,80 +7,81 @@ import { SectionHead } from "./ui";
 import { ALL_LOGOS, Wordmark } from "./logos";
 
 /*
- * SAMPLE CONTENT. The photos are free-licence stock portraits (Pexels) and the
- * names, companies, quotes and figures are invented placeholders. Replace all of
- * it with real customers, with their consent, before launch.
+ * ILLUSTRATIVE CONTENT, NOT CUSTOMER STORIES. Fati has no customers to quote yet, so each entry is a
+ * labeled persona describing an aim of the product. There are no invented names, attributed quotes or
+ * statistics. Photos are free-licence stock portraits (Pexels) and do not depict real Fati users.
+ * `company` only selects a sample logo mark. Replace with real, consented customer stories after launch.
  */
 const STORIES = [
   {
     id: "amara",
-    name: "Amara Okafor",
-    role: "Head of Sales",
+    name: "Sales lead",
+    role: "Illustrative persona",
     company: "Boltshift",
     photo: "/images/people/amara.jpg",
     pos: "50% 30%",
-    quote: `${BRAND} gave us one view of every lead and deal. Our reps stopped living in spreadsheets, and we closed the quarter two weeks early.`,
-    stats: [["+32%", "Win rate"], ["10+ hrs", "Saved per rep, weekly"]],
+    quote: "A sales lead sees every lead and deal in one view, instead of juggling spreadsheets and chasing updates across tools and inboxes.",
+    stats: [["1 view", "Aim: every deal"], ["Fewer", "Aim: missed follow-ups"]],
   },
   {
     id: "daniel",
-    name: "Daniel Mensah",
-    role: "Founder",
+    name: "Founder",
+    role: "Illustrative persona",
     company: "Lightbox",
     photo: "/images/people/daniel.jpg",
     pos: "50% 20%",
-    quote: `Renewals used to surprise us. With ${BRAND}’s customer timeline and churn alerts, we catch at-risk accounts early and keep them.`,
-    stats: [["−28%", "Customer churn"], ["2×", "Faster onboarding"]],
+    quote: "A founder spots at-risk accounts early, using one customer timeline instead of scattered notes.",
+    stats: [["Earlier", "Aim: spotting at-risk accounts"], ["Simpler", "Aim: onboarding customers"]],
   },
   {
     id: "tolu",
-    name: "Tolu Adeyemi",
-    role: "COO",
+    name: "Operations lead",
+    role: "Illustrative persona",
     company: "FeatherDev",
     photo: "/images/people/tolu.jpg",
     pos: "62% 30%",
-    quote: "Projects, customers and invoices finally live in one workspace. My team spends its time delivering, not chasing updates.",
-    stats: [["−40%", "Admin time"], ["15+ hrs", "Saved per week"]],
+    quote: "An operations lead keeps projects, customers and invoices in one workspace, with less time spent chasing updates.",
+    stats: [["1 place", "Aim: projects and customers"], ["Less", "Aim: time spent on admin"]],
   },
   {
     id: "marcus",
-    name: "Marcus Reed",
-    role: "VP Customer Success",
+    name: "Customer success lead",
+    role: "Illustrative persona",
     company: "Orbitly",
     photo: "/images/people/marcus.jpg",
     pos: "50% 30%",
-    quote: "Support, sales and success all see the same customer record now. Handoffs are smooth, and our customers notice.",
-    stats: [["+21%", "Customer NPS"], ["−35%", "Response time"]],
+    quote: "A customer success lead works from the same customer record as sales and support, so handoffs stay smooth.",
+    stats: [["1 record", "Aim: shared by every team"], ["Faster", "Aim: handoffs between teams"]],
   },
   {
     id: "kemi",
-    name: "Kemi Johnson",
-    role: "Revenue Operations Lead",
+    name: "Revenue operations lead",
+    role: "Illustrative persona",
     company: "Northwind",
     photo: "/images/people/kemi.jpg",
     pos: "58% 28%",
-    quote: "Forecasting used to be a Friday scramble. Now the pipeline tells us where the quarter will land, and why.",
-    stats: [["+18%", "Forecast accuracy"], ["−90%", "Reporting time"]],
+    quote: "A revenue operations lead sees where the quarter is heading, without a Friday scramble through spreadsheets.",
+    stats: [["Clearer", "Aim: pipeline forecasts"], ["Quicker", "Aim: reporting"]],
   },
   {
     id: "imani",
-    name: "Imani Brooks",
-    role: "Customer Success Manager",
+    name: "Success manager",
+    role: "Illustrative persona",
     company: "Stackline",
     photo: "/images/people/imani.jpg",
     pos: "50% 30%",
-    quote: `Our follow-ups used to depend on memory. ${BRAND} reminds us at the right moment, so no customer slips through.`,
-    stats: [["+24%", "Renewals on time"], ["3×", "Faster replies"]],
+    quote: "A success manager is reminded of follow-ups at the right moment, so no customer slips through.",
+    stats: [["On time", "Aim: renewal follow-ups"], ["Timely", "Aim: replies to customers"]],
   },
   {
     id: "zara",
-    name: "Zara Bello",
-    role: "Founder",
+    name: "Business owner",
+    role: "Illustrative persona",
     company: "Harbor",
     photo: "/images/people/zara.jpg",
     pos: "50% 28%",
-    quote: "We went from a shared inbox and a spreadsheet to a real pipeline in one afternoon. It grew with us without a rebuild.",
-    stats: [["1 day", "To go live"], ["+27%", "Pipeline value"]],
+    quote: "A small business owner moves from a shared inbox and a spreadsheet to a real pipeline, without a rebuild as the business grows.",
+    stats: [["Quick", "Aim: getting started"], ["Room", "Aim: to grow without a rebuild"]],
   },
 ].map((s) => ({ ...s, logo: ALL_LOGOS.find((l) => l.name === s.company) }));
 
@@ -131,7 +132,7 @@ function Tile({ story, slot, onSelect }) {
     <button
       type="button"
       onClick={onSelect}
-      aria-label={`Read ${story.name}’s story, ${story.role} at ${story.company}`}
+      aria-label={`Read the ${story.name} scenario`}
       style={place(slot)}
       className="pop-in group absolute overflow-hidden rounded-[1.75cqw] bg-fog shadow-[0_0_0_1px_rgba(40,30,20,.05),0_1.1cqw_2cqw_-1.4cqw_rgba(40,30,20,.35)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_0_2px_rgba(225,114,0,.5),0_1.5cqw_2.5cqw_-1.4cqw_rgba(225,114,0,.45)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand"
     >
@@ -139,7 +140,7 @@ function Tile({ story, slot, onSelect }) {
       <span aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/45 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <span aria-hidden className="absolute inset-x-[7%] bottom-[5%] translate-y-1 text-left text-[max(12px,.85cqw)] font-medium leading-tight text-white opacity-0 transition-[opacity,transform] duration-300 group-hover:translate-y-0 group-hover:opacity-100">
         {story.name}
-        <span className="block font-normal text-white/80">{story.company}</span>
+        <span className="block font-normal text-white/80">{story.role}</span>
       </span>
     </button>
   );
@@ -155,9 +156,9 @@ export default function Testimonials() {
   return (
     <section id="testimonial" aria-labelledby="proof-title" className="scroll-mt-6 pt-12 sm:pt-14 lg:pt-16 xl:pt-20">
       <SectionHead
-        badge="Customer stories"
-        title="Trusted by teams that sell and ship"
-        sub={`From two-person startups to growing SaaS companies, teams use ${BRAND} to close deals faster and keep customers longer.`}
+        badge="Illustrative scenarios"
+        title="Built for teams that sell and ship"
+        sub={`From two-person startups to growing companies: how teams could use ${BRAND}. Illustrative scenarios, not customer quotes.`}
         id="proof-title"
       />
 
@@ -182,7 +183,7 @@ export default function Testimonials() {
               <div aria-hidden className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/50 to-transparent" />
               <div key={s.id} className="pop-in absolute bottom-[4.4%] left-[3.7%] rounded-[1.1cqw] bg-white/90 px-[1.4cqw] py-[.85cqw] shadow-[0_10px_24px_-12px_rgba(0,0,0,.4)] backdrop-blur-md">
                 <p className="text-[max(14px,1.07cqw)] font-medium leading-snug tracking-[-0.01em] text-head">{s.name}</p>
-                <p className="text-[max(12px,.88cqw)] leading-snug text-body">{s.role}, {s.company}</p>
+                <p className="text-[max(12px,.88cqw)] leading-snug text-body">{s.role}</p>
               </div>
             </div>
 
@@ -207,7 +208,7 @@ export default function Testimonials() {
           <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
           <div key={s.id} className="pop-in absolute inset-x-3 bottom-3 rounded-xl bg-white/90 px-3 py-2 backdrop-blur-md">
             <p className="text-[15px] font-medium leading-5 text-head">{s.name}</p>
-            <p className="text-[13px] leading-4 text-body">{s.role}, {s.company}</p>
+            <p className="text-[13px] leading-4 text-body">{s.role}</p>
           </div>
         </div>
         <div className="mt-3 grid grid-cols-7 gap-1.5 sm:gap-2">
@@ -216,7 +217,7 @@ export default function Testimonials() {
               key={st.id}
               type="button"
               onClick={() => setActive(i)}
-              aria-label={`Read ${st.name}’s story`}
+              aria-label={`Read the ${st.name} scenario`}
               aria-pressed={i === active}
               className={`relative aspect-square overflow-hidden rounded-xl transition-[box-shadow,opacity] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
                 i === active ? "shadow-[0_0_0_2px_var(--color-brand)]" : "opacity-70 shadow-[0_0_0_1px_rgba(40,30,20,.08)]"
@@ -231,7 +232,7 @@ export default function Testimonials() {
       {/* Trusted by companies */}
       <div className="mt-7 flex flex-col items-center gap-4 text-center sm:mt-9">
         <p className="text-[15px] leading-6 text-body">
-          <span className="font-medium text-head">Trusted by 2,000+ SaaS teams.</span> Rated 4.8 on G2 and Capterra.
+          <span className="font-medium text-head">Built for owners and growing companies.</span> Scenarios, logos and figures are illustrative.
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-9 gap-y-4">
           {ALL_LOGOS.slice(0, 5).map((l) => (
@@ -246,7 +247,7 @@ export default function Testimonials() {
       <div
         role="region"
         aria-live="polite"
-        aria-label={`${s.name}’s story`}
+        aria-label={`${s.name} scenario`}
         className="mx-auto mt-8 grid max-w-[1080px] sm:mt-10 grid-cols-1 gap-5 rounded-[32px] bg-[linear-gradient(180deg,#eceffb_0%,#f6f2f3_50%,#fde6d3_100%)] p-3 shadow-[0_30px_60px_-40px_rgba(225,114,0,.4),inset_0_0_0_1px_rgba(255,255,255,.85)] sm:p-4 lg:grid-cols-[minmax(0,1fr)_268px]"
       >
         <figure className="relative flex min-h-[280px] flex-col justify-between rounded-[24px] bg-white p-5 shadow-[0_0_0_1px_rgba(120,110,160,.08)] sm:p-8">
@@ -263,7 +264,7 @@ export default function Testimonials() {
               </span>
               <div>
                 <p className="font-display t-h3 font-semibold leading-6 tracking-[-0.02em] text-ink">{s.name}</p>
-                <p className="text-[15px] leading-5 text-body">{s.role}, {s.company}</p>
+                <p className="text-[15px] leading-5 text-body">{s.role}</p>
               </div>
             </div>
             <div aria-hidden className="shrink-0">

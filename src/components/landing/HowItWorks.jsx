@@ -174,7 +174,7 @@ export default function HowItWorks() {
       <SectionHead
         badge={`How ${BRAND} works`}
         title="Run your business from one workspace"
-        sub="Import your contacts, track every deal, spot risks early, and let your pipeline do the heavy lifting."
+        sub="An illustrative look at how work could flow: import, track, spot risks and grow. Sample data."
         id="how-title"
       />
       <ul className="mt-7 grid grid-cols-1 gap-4 sm:mt-9 sm:grid-cols-2 sm:gap-5 3xl:mt-12 3xl:grid-cols-4">

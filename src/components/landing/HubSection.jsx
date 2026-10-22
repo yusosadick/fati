@@ -3,9 +3,9 @@ import { Btn } from "./ui";
 import HubFlow from "./HubFlow";
 
 const POINTS = [
-  "Lead scoring and prioritisation",
-  "Automatic follow-up reminders",
-  "Churn alerts before renewals slip",
+  "Planned: lead scoring",
+  "Planned: follow-up reminders",
+  "Planned: churn alerts",
 ];
 
 function CheckTile() {
@@ -21,7 +21,7 @@ function CheckTile() {
   );
 }
 
-/** "Close more deals, with less chasing": hub diagram on the left, copy and checklist on the right. */
+/** "Chase less, spend more time selling": hub diagram on the left, copy and checklist on the right. */
 export default function HubSection() {
   return (
     <section id="workspace" aria-labelledby="workspace-title" className="scroll-mt-6 pt-12 sm:pt-14 lg:pt-16 xl:pt-20">
@@ -35,11 +35,11 @@ export default function HubSection() {
             id="workspace-title"
             className="text-balance t-h2 font-semibold tracking-[-0.026em] text-ink"
           >
-            Close more deals, with less chasing
+            Chase less, spend more time selling
           </h2>
           <p className="mt-4 max-w-[540px] text-pretty t-lead text-body">
-            {BRAND} keeps every lead, deal and customer in one place and shows you what needs attention next, so your team
-            spends its time selling instead of sorting.
+            {BRAND} is being designed to keep every lead, deal and customer in one place and show what needs attention
+            next, so teams can spend their time selling instead of sorting.
           </p>
 
           <ul className="mt-6 flex flex-col gap-3 sm:mt-8 sm:gap-4">

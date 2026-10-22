@@ -35,18 +35,18 @@ function PieIcon({ color }) {
 const FEATURES = [
   {
     title: "Pipeline & lead management",
-    body: "Capture leads from every channel, move deals through your pipeline, and get nudged the moment one goes quiet.",
+    body: "Planned: capture leads from every channel, move deals along your pipeline, and get nudged when one stalls.",
     icon: FunnelIcon,
     active: true,
   },
   {
     title: "Customer 360 & retention",
-    body: "One timeline for every account: conversations, tickets, payments and renewals, so you spot churn risk early.",
+    body: "Planned: one timeline for every account with conversations, tickets, payments and renewals, so churn risk shows early.",
     icon: UsersIcon,
   },
   {
     title: "Revenue insights & forecasting",
-    body: "Track revenue, retention and team performance in real time, with forecasts that show where you will land this quarter.",
+    body: "Planned: track revenue, retention and team performance, with forecasts of where you will land this quarter.",
     icon: PieIcon,
   },
 ];
@@ -66,8 +66,8 @@ export default function Capabilities() {
         </div>
         <div className="xl:pt-[7px]">
           <p className="max-w-[560px] text-pretty t-lead text-body">
-            {BRAND} unifies your pipeline, customer records, projects and team inbox in one platform, with live reporting
-            that shows what is working across sales, retention and delivery.
+            {BRAND} is designed to unify your pipeline, customer records, projects and team inbox in one platform, with
+            reporting that shows what is working across sales, retention and delivery.
           </p>
           <Btn variant="light" href="#how-it-works" className="mt-2">
             Explore all features

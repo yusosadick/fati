@@ -4,44 +4,34 @@ import { useState } from "react";
 import { Verify } from "iconsax-react";
 import { Btn, SectionHead } from "./ui";
 
+/*
+ * Pricing is not decided. Amounts, billing terms and plan limits were removed on purpose: nothing
+ * here may be read as an offer. Feature lists reflect planned scope only. Needs owner approval.
+ */
 const PLANS = [
   {
     name: "Starter",
     tagline: "For solo founders and small teams getting started.",
-    monthly: 0,
-    yearly: 0,
-    cta: "Start for free",
+    cta: "Explore the preview",
     variant: "light",
-    features: ["Up to 2 users", "500 contacts", "Basic sales pipeline", "Email support"],
+    features: ["Business overview", "Lead tracking", "Schedule overview", "Basic reporting"],
   },
   {
     name: "Pro",
-    tagline: "For growing teams that want automation.",
+    tagline: "For growing teams needing structure.",
     featured: true,
-    monthly: 19.99,
-    yearly: 15.99,
-    cta: "Get started",
+    cta: "Explore the preview",
     variant: "brand",
-    features: ["Everything in Starter", "Unlimited contacts", "Workflow automation", "Advanced reports & forecasting", "Priority support"],
+    features: ["Everything in Starter", "Staff management", "Roles and permissions", "Reporting and oversight tools", "Configurable modules"],
   },
   {
     name: "Enterprise",
-    tagline: "For larger teams with advanced security needs.",
-    monthly: 54.99,
-    yearly: 43.99,
-    cta: "Get started",
+    tagline: "For larger teams with branches and departments.",
+    cta: "Explore the preview",
     variant: "light",
-    features: [
-      "Everything in Pro",
-      "Unlimited users & projects",
-      "Role-based access & audit logs",
-      "SSO and custom integrations",
-      "Dedicated success manager",
-    ],
+    features: ["Everything in Pro", "Multi-branch management", "Company-wide oversight tools", "Departments and accounts", "Financial and operations tools"],
   },
 ];
-
-const fmt = (n) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
 
 export default function Pricing() {
   const [yearly, setYearly] = useState(false);
@@ -50,8 +40,8 @@ export default function Pricing() {
     <section id="pricing" aria-labelledby="pricing-title" className="scroll-mt-6 pt-12 sm:pt-14 lg:pt-16 xl:pt-20">
       <SectionHead
         badge="Pricing"
-        title="Start free. Upgrade when ready."
-        sub={"Try it out for 14 days, totally free—no credit card needed!"}
+        title="Plans built to grow with you."
+        sub={"Pricing is still being finalized. Details will be shared before launch."}
         id="pricing-title"
       />
 
@@ -71,7 +61,7 @@ export default function Pricing() {
             }`}
           />
         </button>
-        <span className={yearly ? "text-head" : "text-body"}>Yearly (Save 20%)</span>
+        <span className={yearly ? "text-head" : "text-body"}>Yearly</span>
       </div>
 
       <ul className="mx-auto mt-6 grid max-w-[460px] grid-cols-1 gap-4 md:max-w-none md:grid-cols-3 md:gap-3 lg:gap-5 xl:mt-10">
@@ -88,7 +78,7 @@ export default function Pricing() {
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-[20px] font-semibold leading-8 tracking-[-0.03em] text-ink sm:text-[24px]">{p.name}</h3>
                 {p.featured && (
-                  <span className="rounded-full bg-brand px-3 py-1 text-[12px] font-medium leading-none text-white">Most popular</span>
+                  <span className="rounded-full bg-brand px-3 py-1 text-[12px] font-medium leading-none text-white">Draft</span>
                 )}
               </div>
               <p className="mt-[10px] text-[15px] leading-[1.55] text-body">{p.tagline}</p>
@@ -96,14 +86,14 @@ export default function Pricing() {
             <div className="px-2 lg:px-3">
               <p className="mt-8 flex flex-wrap sm:mt-[45px] items-baseline gap-x-2 gap-y-1 leading-none">
                 <span className="font-display t-price font-semibold tracking-[-0.035em] text-ink">
-                  {fmt(yearly ? p.yearly : p.monthly)}
+                  TBA
                 </span>
-                <span className="text-[14px] text-body">{p.monthly === 0 ? "/ forever" : yearly ? "/ user / mo, billed yearly" : "/ user / month"}</span>
+                <span className="text-[14px] text-body">{yearly ? "yearly pricing not final" : "monthly pricing not final"}</span>
               </p>
               <Btn variant={p.variant} href="/dashboard" className="mt-6 !h-11 w-full lg:mt-[29px]">
                 {p.cta}
               </Btn>
-              <h4 className="mt-10 t-lead font-semibold leading-none text-ink lg:mt-[54px]">Includes:</h4>
+              <h4 className="mt-10 t-lead font-semibold leading-none text-ink lg:mt-[54px]">Planned to include:</h4>
               <ul className="mt-[30px] flex flex-col gap-[18px]">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-center gap-[8px] text-[16px] leading-[1.4] text-body">

@@ -3,7 +3,7 @@ import { Btn } from "./ui";
 import { BRAND } from "./config";
 import BrowserFrame from "./BrowserFrame";
 
-const TRUST = ["14-day free trial", "No credit card needed", "50k+ active users", "Rated 4.8 on G2 & Capterra"];
+const TRUST = ["Interface preview", "No account required", "Built for owners", "Built for growing companies"];
 
 /**
  * Hero + product window.
@@ -32,16 +32,15 @@ export default function Hero({ children }) {
       </h1>
 
       <p className="hero-lede mt-4 max-w-[600px] text-pretty text-body sm:mt-5">
-        Manage your pipeline, customers and projects in one workspace, with live insights that show you what to
-        do next.
+        Fati is being built to bring your pipeline, customers and projects together in one workspace.
       </p>
 
       <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-9 sm:gap-4">
         <Btn variant="brand" href="/dashboard" className="sm:!h-12 sm:!px-7 sm:!text-[15px]">
-          Start free trial
+          Open preview
         </Btn>
         <Btn variant="light" href="#company" className="sm:!h-12 sm:!px-7 sm:!text-[15px]">
-          Book a demo
+          Contact FATI
         </Btn>
       </div>
 

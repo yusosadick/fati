@@ -7,10 +7,10 @@ import { Btn } from "./ui";
 const GUTTER = "px-5 sm:px-10 xl:px-[clamp(40px,calc(40px+(100vw-1280px)*0.1),80px)]";
 
 const ASSURANCE = [
-  { icon: Flash, title: "Live in minutes", copy: "Import your contacts and go" },
-  { icon: Headphone, title: "Real human support", copy: "Fast replies from real people" },
-  { icon: Layer, title: "Built for SaaS teams", copy: "Pipeline, customers and projects" },
-  { icon: ShieldTick, title: "Secure by default", copy: "Encrypted, role-based access" },
+  { icon: Layer, title: "One workspace", copy: "Customers, teams, operations" },
+  { icon: Flash, title: "Made to stay simple", copy: "Clear tools, not complicated" },
+  { icon: Headphone, title: "Built for customers", copy: "Pipeline, customers and projects" },
+  { icon: ShieldTick, title: "Security by design", copy: "A core part of how we build" },
 ];
 
 const EXPLORE = [
@@ -87,7 +87,7 @@ export default function Footer() {
                 One calm workspace.
               </p>
               <p className="mt-3 max-w-[320px] text-[15px] leading-[1.6] text-body">
-                {BRAND} is the CRM and business management platform for SaaS teams: pipeline, customers and projects in one place.
+                {BRAND} is the CRM and business management platform for owners and companies: customers, teams and projects together.
               </p>
             </div>
 
@@ -122,13 +122,13 @@ export default function Footer() {
 
             <div className="col-span-2 rounded-[24px] bg-white p-6 shadow-[0_0_0_1px_rgba(40,30,20,.06),0_24px_40px_-28px_rgba(225,114,0,.45)] lg:col-span-1">
               <p className="font-display t-h3 font-semibold leading-[1.2] tracking-[-0.03em] text-ink">Ready when you are</p>
-              <p className="mt-1.5 text-[15px] leading-[1.5] text-body">Free for 14 days. No credit card, cancel any time.</p>
+              <p className="mt-1.5 text-[15px] leading-[1.5] text-body">Explore the interface preview, or get in touch with us.</p>
               <div className="mt-5 flex flex-col gap-3">
                 <Btn variant="brand" href="/dashboard" className="w-full">
-                  Start free trial
+                  Open preview
                 </Btn>
                 <Btn variant="light" href="/dashboard" className="w-full">
-                  Book a demo
+                  Contact FATI
                 </Btn>
               </div>
             </div>
@@ -156,14 +156,11 @@ export default function Footer() {
           <span>
             {BRAND} &copy; {year}
           </span>
-          <a href="#" className={`py-1.5 ${linkCls}`}>
-            Privacy
-          </a>
-          <a href="#" className={`py-1.5 ${linkCls}`}>
-            Terms
-          </a>
+          <Link href="/about" className={`py-1.5 ${linkCls}`}>
+            About us
+          </Link>
         </div>
-        <span>Built for SaaS teams</span>
+        <span>Built for owners and teams</span>
       </div>
     </footer>
   );

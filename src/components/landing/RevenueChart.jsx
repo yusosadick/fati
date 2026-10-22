@@ -49,7 +49,7 @@ export default function RevenueChart() {
   return (
     <div className="rounded-[20px] bg-white p-4 sm:px-5 sm:pb-[17px] sm:pt-4">
       <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
-        <h3 className="font-display text-[17px] font-medium leading-[26px] sm:text-[19px] tracking-[-0.02em] text-ink">Revenue vs Target</h3>
+        <h3 className="font-display text-[17px] font-medium leading-[26px] sm:text-[19px] tracking-[-0.02em] text-ink">Sample revenue vs target</h3>
         <ul className="flex -translate-y-[3px] items-center gap-[16px] text-[13px] leading-6 tracking-[-0.005em] text-body">
           <li className="flex items-center gap-[7px]">
             <span className="h-2 w-2 rounded-full bg-brand" /> Closed revenue
